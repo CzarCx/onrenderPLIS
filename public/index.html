@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ondrop="return false" ondrag="return false" onpaste="return false" oncontextmenu="return false">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="login-container">
+        <p>Bienvenido al Chat Batiziano</p>
+        <input type="text" class="input-login" placeholder="Nombre de usuario" id="username">
+        <button type="button" class="login-button" onclick="joinChat()">Ingresar</button>
+      </div>
+    </div>
+    <div id="custom-modal" class="modal">
+      <div class="modal-content">
+        <img src="" id="img">
+        <p id="alert-message"></p>
+        <button onclick="closeCustomModal()">Cerrar</button>
+      </div>
+    </div>
+    
+    
+    <script>
+      function validateUsername() {
+        var usernameInput = document.querySelector('#username');
+        var usernameValue = usernameInput.value.trim();
+        var validCharactersRegex = /^[a-zA-Z0-9_-]+$/;
+    
+        if (!usernameValue) {
+          showCustomModal('El nombre de usuario es requerido.');
+          return false;
+        }
+    
+        if (!validCharactersRegex.test(usernameValue)) { 
+          showCustomModal('El nombre de usuario contiene caracteres no permitidos.');
+          return false;
+        }
+        return true;
+      }
+      function showImg (imgSrc){
+        let imgElement = document.getElementById('img');
+        imgElement.src = imgSrc;
+      }
+      function showCustomModal(message) {
+        document.getElementById('alert-message').innerText = message;
+        showImg('../img/no-way-dislike.gif');
+        document.getElementById('custom-modal').style.display = 'flex';
+      }
+    
+      function closeCustomModal() {
+        document.getElementById('custom-modal').style.display = 'none';
+      }
+    
+      function joinChat() {
+        if (validateUsername()) {
+          var username = document.querySelector('#username').value;
+          showCustomModal('Redirigiendo a la sala de chat.');
+          showImg('../img/vaporeon.gif');
+          window.location = '/chat/' + username;
+        }
+      }
+    </script>
+    
+  </body>
+</html>

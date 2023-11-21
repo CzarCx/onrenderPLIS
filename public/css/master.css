@@ -1,0 +1,289 @@
+@font-face {
+  font-family: 'VarelaRound';
+  src: url('../font/VarelaRound-Regular.ttf') format('truetype');
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'VarelaRound';
+}
+.loader {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.loader button {
+  padding: 1rem;
+  color: white;
+  background: none;
+  border: none;
+  border: 4px solid white;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#62152d;
+}
+.infoBox{
+  justify-content: center;
+  align-items: center;
+  width: 30vh;
+  height: 29vh;
+  display: flex;
+  flex-direction: column;
+  background-color:#fff;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+.infoBox p{
+  font-size: 2.2rem;
+}
+.infoBox #userName{
+  font-weight: bold;
+}
+.infoBox #userId{
+  font-size: .8rem;
+}
+.infoBox #profile-photo{
+margin-top: 1rem;
+width: 10rem;
+}
+.user-list {
+  box-sizing: border-box;
+  width: 30vh;
+  background-color: white;
+  border-radius: 10px;
+  height: 60vh;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1rem;
+  color: rgb(80, 80, 80);
+}
+.user-list:-webkit-scrollbar{
+  width: 10px;
+}
+.user-list::-webkit-scrollbar-thumb{
+  background-color: #62152d;
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+.text-container {
+  width: 65%;
+  box-sizing: border-box;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  height: 90vh;
+  max-height: 90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  color: rgb(80, 80, 80);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.text-container::-webkit-scrollbar{
+  width: 10px;
+}
+.text-container::-webkit-scrollbar-thumb{
+  background-color: #62152d;
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+.input-chat{
+  background-color: #ffffff;
+  margin-top: 1rem;
+  height: 5.5vh;
+  width: 64%;
+  border-radius: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+#img-send{
+width: 30px;
+margin-right: 10px;
+}
+#input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border: 2px solid rgb(195, 195, 195);
+  color: rgb(103, 103, 103);
+  font-size: 1rem;
+  border: 0;
+  font-family: 'VarelaRound';
+  font-size: large;
+  background-color: transparent;
+}
+#input:focus{
+  outline: none; 
+  border: none;
+  border-radius: 30px;
+  }
+hr.divider {
+  padding: 0;
+  margin: 1rem 0 1rem;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+ol#lista-users {
+  margin-left: 1rem;
+}
+
+.mensajes-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.local-message {
+  text-align: left;
+  padding: 1rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  margin: 1rem;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-bottom: 0;
+}
+.local-message strong{
+  font-size: large;
+  font-weight: 700;
+}
+
+.local-message #date-message{
+  font-size: x-small;
+}
+.remote-message #date-message{
+  font-size: x-small;
+}
+.remote-message strong{
+  font-size: large;
+  font-weight: 700;
+}
+
+#profile-photo2{
+  margin-top: 3.2rem;
+  margin-left: -.5rem;
+
+  width: 3%;
+}
+.remote-message {
+  padding: 1rem;
+  background-color: rgb(128, 128, 128);
+  color: white;
+  margin: 1rem;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 50%;
+  margin-bottom: 0;
+}
+.remote-message #idUsaerin{
+  font-size: small;
+  margin-right: 1rem;
+}
+.modal {
+  opacity: 0;
+  display: none;
+  position: fixed;
+  top: 10px; 
+  left: 10px; 
+  width: 15rem;
+  height: 5rem;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: opacity 0.5s ease;
+}
+
+.modal-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+#date-message {
+  position: relative; 
+  margin-top: 10px; 
+  float: right; 
+  font-size: 14px;
+  color: #d4d4d4; 
+}
+
+.rotated-text {
+  transform: rotate(270deg);
+  white-space: nowrap;
+  font-size: 70px; 
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  margin-left: -190px;
+}
+#status-modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  height: 100%;
+}
+#userInModal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  height: 100%;
+}
